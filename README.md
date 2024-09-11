@@ -1,27 +1,34 @@
-# VlcjsDedalus
+# Angular Project: VLC Emulation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.3.
+This Angular project emulates specific conditions that might exist in our real application. It provides a basic structure to test and develop functionalities such as Service Worker integration and VLC.js implementation.
 
-## Development server
+## Run the project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. `npm install`
+2. `ng serve` || `ng serve --configuration production`
 
-## Code scaffolding
+## Project Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Base URL**: The project is served from `http://localhost:4200/viewer` instead of the root `http://localhost:4200`.
+- **Service Worker**: A Service Worker intercepts requests and adds a fake authorization header. Although this header doesn't impact the requests in this demo (as the video is not protected), it is essential to mimic our real application where VLC requires these headers for authorization.
+- **Multiple Viewports**: The application supports multiple video viewports. It is not necessary to play videos simultaneously, but it is important that videos can be paused and resumed interchangeably.
 
-## Build
+## How to Add VLC.js
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To integrate VLC.js into this project, follow these steps:
 
-## Running unit tests
+1. **Modify VLC.js Code**:
+   - Navigate to `src/app/vlcjs/vlc.ts`.
+   - Modify the `VLCPlayer` function as needed. This function is called from `src/app/vlcjs/vlc-player.component.ts`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. **Add Service Worker**:
+   - Include all relevant Service Worker files under the `vendor` directory.
+   - The Service Worker will be served from the following URL: `http://localhost:4200/viewer/vlcjs/service.worker.js`.
+   - For reference, a dummy file is provided at `http://localhost:4200/viewer/vlcjs/dummy.txt`.
 
-## Running end-to-end tests
+## Additional Notes
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Ensure that the VLCPlayer function and Service Worker are correctly configured to test the emulation conditions.
+- The structure and code provided should closely resemble the processes used in our real application, making it a suitable testing ground.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Feel free to explore and modify the project as needed to fit your development needs.
