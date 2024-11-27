@@ -17,5 +17,11 @@
       ]
     }
   },
+  "portsAttributes": {
+    "4200": {
+      "label": "Angular Serve",
+      "onAutoForeward": "openPreview"
+    }
+  },
   "postCreateCommand": "npm install && npm start"
 }
