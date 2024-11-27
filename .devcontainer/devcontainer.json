@@ -1,0 +1,21 @@
+{
+  "name": "Angular Project: VLC Emulation",
+  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-18",
+  "forwardPorts": [4200],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "typescript.tsdk": "./node_modules/typescript/lib",
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        "angular.ng-template",
+        "eg2.tslint",
+        "eamodio.gitlens",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  },
+  "postCreateCommand": ["npm install", "npm run build"]
+}
