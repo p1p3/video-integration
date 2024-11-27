@@ -1,6 +1,6 @@
 {
   "name": "Angular Project: VLC Emulation",
-  "image": "ghcr.io/devcontainers/templates/typescript-node",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node",
   "forwardPorts": [
     4200
   ],
