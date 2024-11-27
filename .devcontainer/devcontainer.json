@@ -17,5 +17,5 @@
       ]
     }
   },
-  "postCreateCommand": ["npm install", "npm run build"]
+  "postCreateCommand": "npm install && npm start"
 }
